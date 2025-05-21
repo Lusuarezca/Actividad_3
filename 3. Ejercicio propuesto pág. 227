@@ -1,0 +1,197 @@
+class Mascota:
+    def __init__(self, nombre, edad, color):
+        self.nombre = nombre
+        self.edad = edad
+        self.color = color
+    
+    def __str__(self):
+        return f"{self.__class__.__name__}: {self.nombre}, {self.edad} años, color {self.color}"
+
+
+class Perro(Mascota):
+    def __init__(self, nombre, edad, color, peso, muerde):
+        super().__init__(nombre, edad, color)
+        self.peso = peso
+        self.muerde = muerde
+    
+    @staticmethod
+    def sonido():
+        print("Los perros ladran")
+    
+    def __str__(self):
+        return f"{super().__str__()}, {self.peso} kg, {'muerde' if self.muerde else 'no muerde'}"
+
+
+class Gato(Mascota):
+    def __init__(self, nombre, edad, color, altura_salto, longitud_salto):
+        super().__init__(nombre, edad, color)
+        self.altura_salto = altura_salto
+        self.longitud_salto = longitud_salto
+    
+    @staticmethod
+    def sonido():
+        print("Los gatos maúllan y ronronean")
+    
+    def __str__(self):
+        return f"{super().__str__()}, salta {self.altura_salto} cm de alto y {self.longitud_salto} cm de largo"
+
+
+# Clases para categorías de perros
+class PerroGrande(Perro):
+    """Clase base para perros grandes"""
+    pass
+
+class PerroMediano(Perro):
+    """Clase base para perros medianos"""
+    pass
+
+class PerroPequeno(Perro):
+    """Clase base para perros pequeños"""
+    pass
+
+
+# Razas de perros pequeños
+class Caniche(PerroPequeno):
+    """Raza Caniche"""
+    pass
+
+class YorkshireTerrier(PerroPequeno):
+    """Raza Yorkshire Terrier"""
+    pass
+
+class Schnauzer(PerroPequeno):
+    """Raza Schnauzer"""
+    pass
+
+class Chihuahua(PerroPequeno):
+    """Raza Chihuahua"""
+    pass
+
+
+# Razas de perros medianos
+class Collie(PerroMediano):
+    """Raza Collie"""
+    pass
+
+class Dalmata(PerroMediano):
+    """Raza Dálmata"""
+    pass
+
+class Bulldog(PerroMediano):
+    """Raza Bulldog"""
+    pass
+
+class Galgo(PerroMediano):
+    """Raza Galgo"""
+    pass
+
+class Sabueso(PerroMediano):
+    """Raza Sabueso"""
+    pass
+
+
+# Razas de perros grandes
+class PastorAleman(PerroGrande):
+    """Raza Pastor Alemán"""
+    pass
+
+class Doberman(PerroGrande):
+    """Raza Doberman"""
+    pass
+
+class Rotweiller(PerroGrande):
+    """Raza Rotweiller"""
+    pass
+
+
+# Clases para categorías de gatos
+class GatoSinPelo(Gato):
+    """Clase base para gatos sin pelo"""
+    pass
+
+class GatoPeloLargo(Gato):
+    """Clase base para gatos de pelo largo"""
+    pass
+
+class GatoPeloCorto(Gato):
+    """Clase base para gatos de pelo corto"""
+    pass
+
+
+# Razas de gatos sin pelo
+class Esfinge(GatoSinPelo):
+    """Raza Esfinge"""
+    pass
+
+class Elfo(GatoSinPelo):
+    """Raza Elfo"""
+    pass
+
+class Donskoy(GatoSinPelo):
+    """Raza Donskoy"""
+    pass
+
+
+# Razas de gatos de pelo largo
+class Angora(GatoPeloLargo):
+    """Raza Angora"""
+    pass
+
+class Himalayo(GatoPeloLargo):
+    """Raza Himalayo"""
+    pass
+
+class Balines(GatoPeloLargo):
+    """Raza Balinés"""
+    pass
+
+class Somali(GatoPeloLargo):
+    """Raza Somalí"""
+    pass
+
+
+# Razas de gatos de pelo corto
+class AzulRuso(GatoPeloCorto):
+    """Raza Azul Ruso"""
+    pass
+
+class Britanico(GatoPeloCorto):
+    """Raza Británico"""
+    pass
+
+class Manx(GatoPeloCorto):
+    """Raza Manx"""
+    pass
+
+class DevonRex(GatoPeloCorto):
+    """Raza Devon Rex"""
+    pass
+
+
+if __name__ == "__main__":
+    print("=== Tienda de Mascotas ===")
+    
+    # Crear algunos animales
+    perro1 = PastorAleman("Rex", 3, "negro y fuego", 35, False)
+    perro2 = Chihuahua("Pepe", 5, "café", 2.5, True)
+    gato1 = Esfinge("Cleo", 2, "rosado", 60, 120)
+    gato2 = AzulRuso("Luna", 1, "gris", 50, 100)
+    
+    # Mostrar información
+    print("\nAnimales en la tienda:")
+    print(perro1)
+    print(perro2)
+    print(gato1)
+    print(gato2)
+  
+  
+    print("\nSonidos de los animales:")
+    Perro.sonido()
+    Gato.sonido()
+    
+    #erarquía de clases
+    print("\nJerarquía de clases para perros:")
+    print(f"Mascota -> {Mascota.__subclasses__()[0].__name__} -> {Perro.__subclasses__()[0].__name__} -> {PerroGrande.__subclasses__()[0].__name__}")
+    
+    print("\nJerarquía de clases para gatos:")
+    print(f"Mascota -> {Mascota.__subclasses__()[1].__name__} -> {Gato.__subclasses__()[0].__name__} -> {GatoSinPelo.__subclasses__()[0].__name__}")
