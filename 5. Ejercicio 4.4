@@ -1,0 +1,22 @@
+class Profesor:
+    def imprimir(self):
+        print("Es un profesor.")
+
+
+class ProfesorTitular(Profesor):
+    def imprimir(self):
+        print("Es un profesor titular.")
+
+
+# Clase de prueba que demuestra el polimorfismo
+class Prueba:
+    @staticmethod
+    def main():
+        profesor1 = ProfesorTitular()
+        profesor1.imprimir()
+
+
+# Ejecución del programa
+if __name__ == "__main__":
+    print("=== Resultado de la ejecución del programa ===")
+    Prueba.main()
