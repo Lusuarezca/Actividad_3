@@ -1,0 +1,108 @@
+class Persona: 
+    def __init__(self, nombre, direccion):
+
+        self.nombre = nombre
+        self.direccion = direccion
+    
+    def get_nombre(self):
+        "Obtiene el nombre de la persona"
+        return self.nombre
+    
+    def get_direccion(self):
+        "Obtiene la dirección de la persona"
+        return self.direccion
+    
+    def set_nombre(self, nombre):
+        "Establece el nombre de la persona"
+        self.nombre = nombre
+    
+    def set_direccion(self, direccion):
+        "Establece la dirección de la persona"
+        self.direccion = direccion
+    
+    def __str__(self):
+        return f"Persona: {self.nombre}, Dirección: {self.direccion}"
+
+
+class Estudiante(Persona):
+    def __init__(self, nombre, direccion, carrera, semestre):
+        super().__init__(nombre, direccion)
+        self.carrera = carrera
+        self.semestre = semestre
+    
+    def get_carrera(self):
+        "Obtiene la carrera del estudiante"
+        return self.carrera
+    
+    def get_semestre(self):
+        "Obtiene el semestre del estudiante"
+        return self.semestre
+    
+    def set_carrera(self, carrera):
+        "Establece la carrera del estudiante"
+        self.carrera = carrera
+    
+    def set_semestre(self, semestre):
+        "Establece el semestre del estudiante"
+        self.semestre = semestre
+    
+    def __str__(self):
+        return f"{super().__str__()}, Carrera: {self.carrera}, Semestre: {self.semestre}"
+
+
+class Profesor(Persona):
+    def __init__(self, nombre, direccion, departamento, categoria):
+        super().__init__(nombre, direccion)
+        self.departamento = departamento
+        self.categoria = categoria
+    
+    def get_departamento(self):
+        "Obtiene el departamento del profesor"
+        return self.departamento
+    
+    def get_categoria(self):
+        "Obtiene la categoría del profesor"
+        return self.categoria
+    
+    def set_departamento(self, departamento):
+        "Establece el departamento del profesor"
+        self.departamento = departamento
+    
+    def set_categoria(self, categoria):
+        "Establece la categoría del profesor"
+        self.categoria = categoria
+    
+    def __str__(self):
+        return f"{super().__str__()}, Departamento: {self.departamento}, Categoría: {self.categoria}"
+
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    print("=== Sistema Universitario ===")
+    
+    # Crear una persona
+    persona1 = Persona("Juan Pérez", "Calle Falsa 123")
+    print("\nPersona:")
+    print(persona1)
+    
+    # Crear un estudiante
+    estudiante1 = Estudiante("María García", "Avenida Siempreviva 742", 
+                           "Ingeniería Informática", 5)
+    print("\nEstudiante:")
+    print(estudiante1)
+    
+    # Modificar datos del estudiante
+    estudiante1.set_semestre(6)
+    print("\nEstudiante (semestre actualizado):")
+    print(estudiante1)
+    
+    # Crear un profesor
+    profesor1 = Profesor("Dr. Smith", "Boulevard Universitario 456", 
+                        "Ciencias de la Computación", "Titular")
+    print("\nProfesor:")
+    print(profesor1)
+    
+    # Modificar datos del profesor
+    profesor1.set_categoria("Asociado")
+    print("\nProfesor (categoría actualizada):")
+    print(profesor1)
